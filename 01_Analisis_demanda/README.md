@@ -7,7 +7,8 @@ Luego examinamos la demanda del mercado y desglosamos el concepto de elasticidad
 
 ### Código a utilizar
 
-Necesitaremos las bibliotecas readxl y tidyverse para este proyecto. 
+Necesitaremos las librerias readxl y tidyverse para este proyecto. 
+
 Si no los tienes instalados en tu entorno R, simplemente elimina el signo " # " antes de las líneas de código " install.packages... " 
 
 ```ruby
