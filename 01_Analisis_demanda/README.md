@@ -65,3 +65,7 @@ ggplot(data = Wrangled_Data, aes(x = Quantity, y = Price)) +
         geom_point(color = "steelblue") +
         facet_wrap(. ~ Qd_num)
 ```
+
+Lo que se puede observar es que, a medida que el precio baja, la mayoría de las empresas comienzan a comprar más licencias. Algunos realmente no están comprando muchas licencias sin importar el precio. 
+
+Uno de los conceptos fundamentales es que las empresas tienen demandas individuales. Algunas empresas simplemente valoran nuestro producto más que otras, y es posible que bajar el precio no tenga mucho impacto en su decisión de compra. Por eso, vamos a hacer un análisis de elasticidad/precio. 
