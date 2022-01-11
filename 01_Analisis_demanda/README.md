@@ -23,3 +23,15 @@ require(tidyverse)
 
 #### Cargar datos
 Vamos a utilizar los datos Demanda_data.xls que se encuentran en la carpeta de datos. 
+
+```ruby
+# Importar datos 
+Demanda_Data <- read_excel("Demanda_Data.xlsx")
+```
+
+Posteriormente verificamos los datos que hemos cargado
+
+```ruby
+# Checar datos 
+head(Demanda_Data)
+```
