@@ -43,4 +43,15 @@ Cuando se trabaja con datos económicos, siempre es una buena idea hacer un grá
 plot(Demanda_Data$Qd_6, Demanda_Data$Price, type = "l", main = "Grafica", xlab = "Cantidad", ylab = "Precio")
 ```
 ### Trazar curvas de demanda individuales
-El siguiente paso es ver las curvas de demanda individuales al mismo tiempo. Para esto usamos ggplot y la función stack para compilar los datos.
+El siguiente paso es ver las curvas de demanda individuales al mismo tiempo. Para esto usamos ggplot y la función stack para compilar los datos. La función stack() básicamente combina varios vectores en un único vector. En este caso, hacemos un solo vector con las demandas individuales. 
+
+Finalmente, cambiaremos los nombres de columna de los generados por la función stack() para hacerlos un poco más apropiados para nuestro proyecto.
+
+```ruby
+# Manipular los datos para una mejor visualizacion, wrangling data
+Wrangled_Data <- data.frame(Price = Demanda_Data$Price, stack(Demanda_Data[2:11]))
+names(Wrangled_Data)[2] <- "Quantity"
+names(Wrangled_Data)[3] <- "Qd_num"
+# Checamos los datos
+head(Wrangled_Data)
+```
