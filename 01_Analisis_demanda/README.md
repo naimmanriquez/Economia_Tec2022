@@ -55,3 +55,13 @@ names(Wrangled_Data)[3] <- "Qd_num"
 # Checamos los datos
 head(Wrangled_Data)
 ```
+
+Con eso, podemos usar mucho más fácilmente la función facet_wrap() para mostrar elegantemente todas las curvas de demanda individuales. La función facet_wrap() sirve para realizar un gráfico por diferentes grupos o categorías, en nuestro caso para las demandas individuales.
+
+```ruby
+# Grafica de curvas de demanda individuales
+ggplot(data = Wrangled_Data, aes(x = Quantity, y = Price)) +
+        geom_line(color = "steelblue", size = 1) +
+        geom_point(color = "steelblue") +
+        facet_wrap(. ~ Qd_num)
+```
