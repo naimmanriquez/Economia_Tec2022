@@ -42,3 +42,5 @@ Cuando se trabaja con datos económicos, siempre es una buena idea hacer un grá
 ```ruby
 plot(Demanda_Data$Qd_6, Demanda_Data$Price, type = "l", main = "Grafica", xlab = "Cantidad", ylab = "Precio")
 ```
+### Trazar curvas de demanda individuales
+El siguiente paso es ver las curvas de demanda individuales al mismo tiempo. Para esto usamos ggplot y la función stack para compilar los datos.
