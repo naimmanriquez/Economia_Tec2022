@@ -35,3 +35,10 @@ Posteriormente verificamos los datos que hemos cargado
 # Checar datos 
 head(Demanda_Data)
 ```
+
+### Gráfica de prueba
+Cuando se trabaja con datos económicos, siempre es una buena idea hacer un gráfico rápido para ver como se comportan los datos y ver alguna posible anomalia.
+
+```ruby
+plot(Demanda_Data$Qd_6, Demanda_Data$Price, type = "l", main = "Grafica", xlab = "Cantidad", ylab = "Precio")
+```
