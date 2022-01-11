@@ -7,6 +7,7 @@ Luego examinamos la demanda del mercado y desglosamos el concepto de elasticidad
 
 ### Código a utilizar
 
+#### Instalar librerias
 Necesitaremos las librerias readxl y tidyverse para este proyecto. 
 
 Si no los tienes instalados en tu entorno R, simplemente elimina el signo " # " antes de las líneas de código " install.packages... " 
@@ -19,3 +20,6 @@ Si no los tienes instalados en tu entorno R, simplemente elimina el signo " # " 
 require(readxl) 
 require(tidyverse)
 ```
+
+#### Cargar datos
+Vamos a utilizar los datos Demanda_data.xls que se encuentran en la carpeta de datos. 
