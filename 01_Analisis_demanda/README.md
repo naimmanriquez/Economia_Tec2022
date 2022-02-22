@@ -79,3 +79,46 @@ Market_Demand <- data.frame(Price = Demanda_Data$Price, Market_Demand = rowSums(
 # Checamos los datos
 head(Market_Demand)
 ```
+### Trazar la demanda del mercado
+La visualización de nuestros datos se puede hacer con un poco de ayuda de ggplot() simplemente trazando la suma de nuestras cantidades demandadas para cada precio.
+Aquí está el código:
+
+```ruby
+ggplot(data = Market_Demand, aes(x = Market_Demand, y = Price)) +
+  geom_line(color = "steelblue", size = 1) +
+  geom_point(color = "steelblue") +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0)
+```
+Cuando miramos esto, notamos instantáneamente que en ciertos rangos de esta curva de demanda de mercado, un cambio en el precio no producirá el mismo cambio en la cantidad demandada por el mercado en cada punto de la curva porque no es lineal.
+Ahora, echemos un vistazo a eso e introduzcamos el concepto de elasticidad.
+
+### Elasticidad
+La elasticidad de la demanda es simplemente la idea de ver cómo cambia la combinación de precios y cantidades entre dos puntos de una curva. Puede expresarse matemáticamente como el cambio porcentual en la cantidad dividido por el cambio porcentual en el precio. La pregunta a responder es:
+¿en cuánto cambia la cantidad demandada por cada unidad de cambio de precio?
+
+```ruby
+# Rangos de precios y elasticidades
+# 10-6.5 Rango 1
+# 6-4 Rango 2
+# 3.5-2 Rango 3
+# 1.5-0 Rango 4
+Market_Demand$Elasticity_Zone <- as.character(c(1,1,1,1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,4,4))
+Market_Demand
+```
+### Trazar la demanda del mercado con zonas de elasticidad
+
+Si bien ggplot puede ser frustrante a veces, ofrece algunas funciones excelentes. Vamos a agregar a nuestro código de demanda de mercado anterior agregando color = Elasticity_Zone a la función aes() para que ggplot sepa asignar un color diferente a cada zona.
+También agregaremos la función geom_smooth() con el parámetro method = “lm” para que haga modelos lineales para cada zona de elasticidad. Por ahora, esto muestra claramente que diferentes secciones de la curva de demanda pueden tener pendientes y números de elasticidad bastante diferentes.
+
+```ruby
+# Grafica de demanda de mercado con rangos/elasticidades
+ggplot(data = Market_Demand, aes(x = Market_Demand, y = Price, color = Elasticity_Zone)) +
+        geom_line(size = 1) +
+        geom_point() +
+        geom_smooth(method = "lm") +
+        geom_vline(xintercept = 0) +
+        geom_hline(yintercept = 0) +
+        ggtitle("Demanda de mercado con rangos de precios/elasticidades") +
+        theme(plot.title = element_text(hjust = 0.5))
+```
